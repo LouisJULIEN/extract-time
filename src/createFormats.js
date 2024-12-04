@@ -92,6 +92,10 @@ const civilianTimeFormatsWithoutMinutes = [
       'h',
     ],
     [
+      '',
+      ' ',
+    ],
+    [
       'a',
     ],
   ])

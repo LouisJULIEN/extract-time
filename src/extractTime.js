@@ -63,6 +63,7 @@ export default (input: string, timeNotation: TimeNotationType | null = null): $R
       words = words.slice(chunkIndex);
 
       matches.push({
+        originalText: subject,
         time: formatDate(date, 'HH:mm'),
       });
     }
