@@ -8,24 +8,16 @@ import {
 import createMovingChunks from './createMovingChunks';
 import normalizeInput from './normalizeInput';
 import createFormats from './createFormats';
-import Logger from './Logger';
 import type {
   TimeMatchType,
   TimeNotationType,
 } from './types';
 
-const log = Logger.child({
-  namespace: 'extractTime',
-});
 
 export default (input: string, timeNotation: TimeNotationType | null = null): $ReadOnlyArray<TimeMatchType> => {
   const formats = createFormats(timeNotation);
 
-  log.debug('attempting to extract date from "%s" input', input);
-
   const normalizedInput = normalizeInput(input);
-
-  log.debug('normalized input to "%s"', normalizedInput);
 
   let words = normalizedInput.split(' ');
 
@@ -57,8 +49,6 @@ export default (input: string, timeNotation: TimeNotationType | null = null): $R
       if (!isDateValid(date)) {
         continue;
       }
-
-      log.debug('matched "%s" using "%s" date-fns format', subject, format.dateFnsFormat);
 
       words = words.slice(chunkIndex);
 

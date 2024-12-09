@@ -13,3 +13,4 @@ node_modules
 !.README
 !.travis.yml
 /package-lock.json
+bundle
