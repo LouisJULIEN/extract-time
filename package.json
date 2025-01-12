@@ -1,9 +1,5 @@
 {
-  "author": {
-    "email": "gajus@gajus.com",
-    "name": "Gajus Kuizinas",
-    "url": "http://gajus.com"
-  },
+  "author": "Gajus Kuizinas <gajus@gajus.com> (http://gajus.com)",
   "ava": {
     "babel": {
       "compileAsTests": [
@@ -60,8 +56,8 @@
     "parse"
   ],
   "license": "BSD-3-Clause",
-  "main": "./dist/index.js",
-  "name": "extract-time",
+  "main": "./index.js",
+  "name": "@louis.jln/extract-time",
   "nyc": {
     "include": [
       "src/**/*.js"
@@ -77,14 +73,21 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/gajus/extract-time"
+    "url": "git+https://github.com/gajus/extract-time.git"
   },
   "scripts": {
     "build": "rm -fr ./dist && NODE_ENV=production babel ./src --out-dir ./dist --copy-files --source-maps && flow-copy-source src dist",
-    "bundle": "esbuild dist/index.js --bundle --outfile=bundle/extract-time.js --format=esm",
     "create-readme": "gitdown ./.README/README.md --output-file ./README.md",
     "lint": "eslint ./src ./test && flow",
-    "test": "NODE_ENV=test ava --verbose --serial"
+    "test": "NODE_ENV=test ava --verbose --serial",
+    "npm-publish": "rm -rf build; npm run build; cp package.json dist/package.json; cd dist; npm publish --access public"
   },
-  "version": "3.0.0-local"
+  "version": "3.0.0",
+  "directories": {
+    "test": "test"
+  },
+  "bugs": {
+    "url": "https://github.com/gajus/extract-time/issues"
+  },
+  "homepage": "https://github.com/gajus/extract-time#readme"
 }
